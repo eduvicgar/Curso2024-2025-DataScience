@@ -38,6 +38,13 @@ SELECT ?distrito ?wikidata WHERE {
     ?distrito owl:sameAs ?wikidata
     }
 
+# Wikidata de todos los barrios operados por Repsol
+SELECT DISTINCT ?barrio ?wikidata WHERE {
+    ?cargador ns:tieneOperador operadores:REPSOL .
+    ?cargador ns:estaEn ?barrio .
+    ?barrio owl:sameAs ?wikidata
+    }
+
 # Wikidata de todos los operadores reconciliados que tienen al menos un cargador en el distrito de Chamartin
 SELECT DISTINCT ?operador ?wikidata WHERE {
     ?operador rdf:type ns:Operador .
