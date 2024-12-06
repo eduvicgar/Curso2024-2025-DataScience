@@ -52,3 +52,10 @@ SELECT DISTINCT ?nombre ?wikidata WHERE {
     ?barrio ns:dentroDe ?nombre .
     ?nombre owl:sameAs ?wikidata .
 }
+
+# Nombre y wikidata de los barrios donde hay híbridos enchufables
+SELECT DISTINCT ?nombre ?wikidata WHERE {
+    ?vehiculo ns:tipoDeCarburante tipocarburante:PHEV .
+    ?vehiculo ns:estaEn ?nombre .
+    ?nombre owl:sameAs ?wikidata .
+}
